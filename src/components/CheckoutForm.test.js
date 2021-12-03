@@ -3,6 +3,7 @@ import MutationObserver from 'mutationobserver-shim';
 import { render, screen, waitFor } from "@testing-library/react";
 import CheckoutForm from "./CheckoutForm";
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom/extend-expect';
 
 // Write up the two tests here and make sure they are testing what the title shows
 
@@ -27,6 +28,9 @@ test("shows success message on submit with form details", async () => {
 	const button = screen.getByRole('button');
 	userEvent.click(button);
 	await waitFor(()=>{
-		 const happyMessage = screen.getByText(/You have ordered some plants! Woo-hoo!/i)
+		const happyMessage = screen.getByText(/You have ordered some plants! Woo-hoo!/i)
+		expect(happyMessage).toBeInTheDocument();
+		const despressedMessage = screen.getByTestId('successMessage');
+		expect(despressedMessage).toBeInTheDocument();
 	})
 });

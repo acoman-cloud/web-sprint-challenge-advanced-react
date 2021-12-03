@@ -119,7 +119,8 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 1. What are the main differences between a stateful and a functional component?
   A functional component does what it needs to do, however a stateful component changes a state.
 2. When does a componentWillMount function be called? What about a componentWillUpdate?
-
+  A componentWillMount function will call first, and only once, when a component mounts. And componentWillUpdate will run everytime the componeont changes and state changes.
 3. Define stateful logic.
-
+  When state is used a lot and is changed.
 4. What are the three step of creating a successful test? What is done in each phase? 
+  Arrange, Act and Assert. Arrange is the setup, Act finds the rendered parts, and Assert checks their existence and value.
